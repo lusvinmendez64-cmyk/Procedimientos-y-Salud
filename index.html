@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedimientos de Emergencia y Salud Escolar</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1E88E5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Emergencia Escolar">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header">
+            <h1>🏫 Emergencia y Salud Escolar</h1>
+            <p>MINEDUC - Guía Integral 2023</p>
+        </header>
+
+        <!-- MENÚ PRINCIPAL -->
+        <div class="main-menu" id="mainMenu">
+            <!-- MENÚ DE EMERGENCIAS -->
+            <div class="menu-section">
+                <h2>🚨 Procedimientos de Emergencia</h2>
+                <div class="procedure-buttons">
+                    <button class="procedure-btn earthquake" onclick="selectProcedure('SISMO')">
+                        🌋 Sismo
+                    </button>
+                    <button class="procedure-btn fire" onclick="selectProcedure('INCENDIO')">
+                        🔥 Incendio
+                    </button>
+                    <button class="procedure-btn flood" onclick="selectProcedure('INUNDACIÓN')">
+                        💧 Inundación
+                    </button>
+                    <button class="procedure-btn volcano" onclick="selectProcedure('CENIZA_VOLCÁNICA')">
+                        🌫️ Ceniza Volcánica
+                    </button>
+                    <button class="procedure-btn evacuation" onclick="selectProcedure('EVACUACIÓN')">
+                        🚶 Evacuación General
+                    </button>
+                    <button class="procedure-btn shelter" onclick="selectProcedure('RESGUARDO')">
+                        🛡️ Resguardo en Aula
+                    </button>
+                </div>
+            </div>
+
+            <!-- MENÚ DE SALUD -->
+            <div class="menu-section">
+                <h2>🏥 Protocolos de Salud</h2>
+                <div class="health-buttons">
+                    <button class="health-btn primeros-auxilios" onclick="selectHealthProtocol('PRIMEROS_AUXILIOS')">
+                        🩹 Primeros Auxilios
+                    </button>
+                    <button class="health-btn covid" onclick="selectHealthProtocol('COVID_GRIPE')">
+                        🦠 Enfermedades Respiratorias
+                    </button>
+                    <button class="health-btn alergia" onclick="selectHealthProtocol('ALERGIA_ANAFILAXIA')">
+                        ⚠️ Reacciones Alérgicas
+                    </button>
+                    <button class="health-btn asma" onclick="selectHealthProtocol('CRISIS_ASMATICA')">
+                        🌬️ Crisis Asmática
+                    </button>
+                    <button class="health-btn calor" onclick="selectHealthProtocol('GOLPE_CALOR')">
+                        🌡️ Golpe de Calor
+                    </button>
+                    <button class="health-btn emocional" onclick="selectHealthProtocol('CRISIS_EMOCIONAL')">
+                        🧠 Crisis Emocional
+                    </button>
+                </div>
+            </div>
+
+            <!-- BOTONES DE ACCIÓN GLOBAL -->
+            <div class="global-actions">
+                <button class="action-btn global" onclick="showContacts()">
+                    📞 Contactos de Emergencia
+                </button>
+                <button class="action-btn global" onclick="showHistory()">
+                    📊 Historial de Prácticas
+                </button>
+            </div>
+        </div>
+
+        <!-- PROCEDIMIENTO DETALLADO -->
+        <div class="procedure-detail" id="procedureDetail" style="display: none;">
+            <div class="procedure-header">
+                <h2 id="procedureTitle">PROCEDIMIENTO</h2>
+                <div class="procedure-time" id="procedureTime"></div>
+            </div>
+            
+            <div class="steps-container" id="stepsContainer">
+                <!-- Pasos dinámicos -->
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn primary" onclick="startPractice()">
+                    🏁 Iniciar Práctica
+                </button>
+                <button class="action-btn secondary" onclick="showContacts()">
+                    📞 Contactos de Emergencia
+                </button>
+                <button class="action-btn secondary" onclick="showHistory()">
+                    📊 Ver Historial
+                </button>
+                <button class="action-btn secondary" onclick="backToMenu()">
+                    ⬅️ Volver al Menú
+                </button>
+            </div>
+        </div>
+
+        <!-- CONTACTOS DE EMERGENCIA -->
+        <div class="contacts-section" id="contactsSection" style="display: none;">
+            <h2>📞 Contactos de Emergencia</h2>
+            <div class="contact-buttons">
+                <button class="contact-btn" onclick="callEmergency('122')">
+                    🚒 Bomberos: 122
+                </button>
+                <button class="contact-btn" onclick="callEmergency('110')">
+                    👮 Policía: 110
+                </button>
+                <button class="contact-btn" onclick="callEmergency('125')">
+                    🏥 Cruz Roja: 125
+                </button>
+                <button class="contact-btn" onclick="callEmergency('119')">
+                    🌋 CONRED: 119
+                </button>
+                <button class="contact-btn" onclick="callEmergency('123')">
+                    🧠 Salud Mental: 123
+                </button>
+                <button class="contact-btn" onclick="backToProcedure()">
+                    ⬅️ Volver
+                </button>
+            </div>
+        </div>
+
+        <!-- HISTORIAL -->
+        <div class="history-section" id="historySection" style="display: none;">
+            <h2>📋 Historial de Prácticas</h2>
+            <div id="historyList"></div>
+            <button class="action-btn" onclick="backToProcedure()">
+                ⬅️ Volver
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(function(registration) {
+                    console.log('Service Worker registrado:', registration);
+                });
+        }
+    </script>
+</body>
+</html>

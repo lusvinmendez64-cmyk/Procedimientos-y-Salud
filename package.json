@@ -1,0 +1,30 @@
+{
+  "name": "emergency-school-app",
+  "version": "1.0.0",
+  "description": "Aplicación web progresiva para procedimientos de emergencia y salud escolar - MINEDUC Guatemala",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 3000 -c-1",
+    "build": "echo 'No build process required for static app'",
+    "deploy": "echo 'Deploy to GitHub Pages'"
+  },
+  "keywords": [
+    "pwa",
+    "emergencia",
+    "salud",
+    "escolar",
+    "mineduc",
+    "guatemala",
+    "cegr",
+    "seguridad"
+  ],
+  "author": "Equipo CEGR MINEDUC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/emergency-school-app.git"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

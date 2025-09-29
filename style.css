@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1E88E5, #43A047);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    color: #1E88E5;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* SECCIONES DEL MENÚ */
+.menu-section {
+    margin-bottom: 25px;
+}
+
+.menu-section h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #E0E0E0;
+}
+
+/* BOTONES DE PROCEDIMIENTOS */
+.procedure-buttons, .health-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.procedure-btn, .health-btn {
+    padding: 12px 8px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-height: 50px;
+}
+
+.procedure-btn:hover, .health-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.procedure-btn:active, .health-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Colores específicos para procedimientos de emergencia */
+.earthquake { background: linear-gradient(135deg, #FF9800, #E53935); }
+.fire { background: linear-gradient(135deg, #E53935, #D81B60); }
+.flood { background: linear-gradient(135deg, #1E88E5, #1565C0); }
+.volcano { background: linear-gradient(135deg, #795548, #5D4037); }
+.evacuation { background: linear-gradient(135deg, #43A047, #2E7D32); }
+.shelter { background: linear-gradient(135deg, #8E24AA, #6A1B9A); }
+
+/* Colores específicos para protocolos de salud */
+.primeros-auxilios { background: linear-gradient(135deg, #E53935, #D81B60); }
+.covid { background: linear-gradient(135deg, #FF9800, #F57C00); }
+.alergia { background: linear-gradient(135deg, #8E24AA, #6A1B9A); }
+.asma { background: linear-gradient(135deg, #00ACC1, #00838F); }
+.calor { background: linear-gradient(135deg, #FF5722, #D84315); }
+.emocional { background: linear-gradient(135deg, #7B1FA2, #4A148C); }
+
+/* ACCIONES GLOBALES */
+.global-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-btn.global {
+    background: linear-gradient(135deg, #1E88E5, #1565C0);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.action-btn.global:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* DETALLE DEL PROCEDIMIENTO */
+.procedure-detail {
+    text-align: center;
+}
+
+.procedure-header {
+    background: linear-gradient(135deg, #1E88E5, #43A047);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.procedure-header h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.procedure-time {
+    font-size: 14px;
+    background: rgba(255,255,255,0.2);
+    padding: 6px 12px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.steps-container {
+    margin-bottom: 25px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.step-card {
+    background: #F8F9FA;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    text-align: left;
+    border-left: 4px solid #43A047;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.step-card:hover {
+    transform: translateX(3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.step-number {
+    background: #1E88E5;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.step-text {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* TARJETA DE RECURSOS */
+.resources-card {
+    background: #E3F2FD;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid #2196F3;
+}
+
+.resources-title {
+    font-weight: bold;
+    color: #1976D2;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.resource-item {
+    display: inline-block;
+    background: white;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 15px;
+    font-size: 11px;
+    border: 1px solid #BBDEFB;
+}
+
+/* BOTONES DE ACCIÓN */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.action-btn {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.action-btn.primary {
+    background: linear-gradient(135deg, #1E88E5, #1565C0);
+    color: white;
+}
+
+.action-btn.secondary {
+    background: #E0E0E0;
+    color: #333;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* CONTACTOS */
+.contacts-section, .history-section {
+    text-align: center;
+}
+
+.contacts-section h2, .history-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.contact-btn {
+    background: #43A047;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.contact-btn:hover {
+    background: #2E7D32;
+    transform: scale(1.05);
+}
+
+/* HISTORIAL */
+.history-item {
+    background: #F5F5F5;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border-left: 4px solid #1E88E5;
+    text-align: left;
+}
+
+.history-item strong {
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.history-item small {
+    color: #666;
+    font-size: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .procedure-buttons, .health-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .procedure-btn, .health-btn {
+        font-size: 13px;
+        padding: 10px 5px;
+        min-height: 45px;
+    }
+    
+    .contact-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .procedure-header h2 {
+        font-size: 18px;
+    }
+    
+    .step-text {
+        font-size: 12px;
+    }
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.procedure-detail, .contacts-section, .history-section {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* SCROLLBAR PERSONALIZADO */
+.steps-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.steps-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.steps-container::-webkit-scrollbar-thumb {
+    background: #1E88E5;
+    border-radius: 3px;
+}
+
+.steps-container::-webkit-scrollbar-thumb:hover {
+    background: #1565C0;
+}
